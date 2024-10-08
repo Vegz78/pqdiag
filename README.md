@@ -3,6 +3,8 @@ Scripts for running and scheduling print quality diagnostics reports (PQ Diagnos
 
 (At least these scripts work on my HP OfficeJet Pro 8710 / 8715 series printer from Windows, MacOS and Linux devices. Appreciate feedbacks in the [issues](https://github.com/Vegz78/pqdiag/issues) section on whether the scripts work or not for other HP printers!)
 
+![pqdiagnostics](https://github.com/user-attachments/assets/6a3ebff2-4577-4307-806d-72edec964e55)
+
 ## Table of Contents:
 [Intro](https://github.com/Vegz78/pqdiag#intro)<BR>
 [Prerequisites](https://github.com/Vegz78/pqdiag#prerequisites)<BR>
