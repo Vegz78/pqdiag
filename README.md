@@ -8,6 +8,7 @@ Prerequisites<BR>
 Installation<BR>
 Usage<BR>
 Scheduling<BR>
+Support
 
 ## Intro
 Having grown tired of dried and clogged up printhead nozzles on my HP OfficeJet Pro 8715 printer, and unsatisfied with the tremendous waste of ink from periodically running the printhead cleaning program or scheduling weekly power cycles in the printer's EWS (embedded web server), I set out on a small journey to see if there was some way to schedule the printer's ink-efficient internal print quality diagnostic report to run often enough from my always-on SBC (Rasperry Pi) or NAS servers to prevent clogging through prolonged periods of little printing.
@@ -29,3 +30,11 @@ Lastly, capturing the https package in question from the HP Utility using Wiresh
 3. On MacOS and Linux, make the bash script executable, e.g.: ```sudo chmod 755 ./pqdiag.sh```
 
 ## Usage
+### MacOS and Linux
+From inside the folder where _pqdiag.sh_ is located, run the script like this:<BR>
+```./pqdiag.sh 192.168.0.10```<BR>, where _192.168.0.1 must be substituted with the actual IP address of your HP printer.
+### Windows
+From inside the folder where _pqdiag.bat_ is located, run the script like this:<BR>
+```./pqdiag.bat 192.168.0.10```<BR>, where _192.168.0.1 must be substituted with the actual IP address of your HP printer.
+
+## Scheduling
