@@ -22,8 +22,10 @@ Lastly, capturing the https package in question from the HP Utility using Wiresh
 
 Additional thanks to:
 - _MC ND_ on Stack Overflow for showing the way [how to check an argument containing an IP address using regex with ```findstr``` in at bat script](https://stackoverflow.com/a/20301111/12802435)!
-- _Danail Gabensky_ for the superb answer on Stack Overflow on [how to most efficiently check an argument containing an IP address using regex in a bash script](https://stackoverflow.com/a/36760050/12802435)
+- _Danail Gabensky_ for the superb answer on Stack Overflow on [how to most efficiently check an argument containing an IP address using regex in a bash script](https://stackoverflow.com/a/36760050/12802435)!
 - _pilcrow_ for a solution on Stack Overflow for [how to make biweekly cron jobs](https://stackoverflow.com/a/19278657/12802435)!
+- [grontab.guru](https://crontab.guru) for a handy online tool for experimenting with crontab schedules!
+- [regex101.com](https://regex101.com) for a handy online tool for experimenting with regex patterns!
 
 ## Prerequisites
 - A device running Windows, MacOS or Linux, preferably always on or able to wake up periodically to run the script
