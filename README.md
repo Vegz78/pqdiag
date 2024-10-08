@@ -65,7 +65,7 @@ Using _cron_:
 https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page
 
 ## Support (or lack thereof)
-Since everything works as planned already for me and I have spent some time writing this [_README.md_](https://github.com/Vegz78/pqdiag/edit/main/README.md) with everything there is to know, this repository will not regularly be visited and updated, and it will NOT be user supported.
+Since everything works as planned already for me and I have spent some time writing this [_README.md_](https://github.com/Vegz78/pqdiag/blob/main/README.md) with everything there is to know, this repository will not regularly be visited and updated, and it will NOT be user supported.
 
 However, I have some interest in making this a general and available tool for HP printer users with similar needs, so I will visit now and then and maybe fix some errors or help make it work for other printers than the HP OfficeJet Pro 8710 / 8715.
 
