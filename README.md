@@ -3,12 +3,12 @@ Scripts for scheduling print quality diagnostics reports (PQ Diagnostics) on HP 
 (At least these scripts work on my HP OfficeJet Pro 8710 / 8715 series printer from Windows, MacOS and Linux devices. Appreciate feedbacks in the [issues](https://github.com/Vegz78/pqdiag/issues) section on whether the scripts work or not for other HP printers!)
 
 ## Table of Contents:
-Intro<BR>
-Prerequisites<BR>
-Installation<BR>
-Usage<BR>
-Scheduling<BR>
-Support (or lack thereof)
+[Intro](https://github.com/Vegz78/pqdiag#intro)<BR>
+[Prerequisites](https://github.com/Vegz78/pqdiag#prerequisites)<BR>
+[Installation](https://github.com/Vegz78/pqdiag#installation)<BR>
+[Usage](https://github.com/Vegz78/pqdiag#usage)<BR>
+[Scheduling](https://github.com/Vegz78/pqdiag#scheduling)<BR>
+[Support (or lack thereof)](https://github.com/Vegz78/pqdiag#support-or-lack-thereof)
 
 ## Intro
 Having grown tired of dried and clogged up printhead nozzles on my HP OfficeJet Pro 8715 printer, and unsatisfied with the tremendous waste of ink from periodically running the printhead cleaning program or scheduling weekly power cycles in the printer's EWS (embedded web server), I set out on a small journey to see if there was some way to schedule the printer's ink-efficient internal print quality diagnostic report to run often enough from my always-on SBC (Rasperry Pi) or NAS servers to prevent clogging through prolonged periods of little printing.
@@ -60,6 +60,8 @@ Using _cron_:
 https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page
 
 ## Support (or lack thereof)
-Since everything works as planned already for me and I have spent some time, this repository will not regularly be visited and updated, and it will NOT be user supported.
+Since everything works as planned already for me and I have spent some time writing this [_README.md_](https://github.com/Vegz78/pqdiag/edit/main/README.md) with everything there is to know, this repository will not regularly be visited and updated, and it will NOT be user supported.
+
 However, I have some interest in making this a general and available tool for HP printer users with similar needs, so I will visit now and then and maybe fix some errors or help make it work for other printers than the HP OfficeJet Pro 8710 / 8715.
+
 Please post such feedbacks in the [issues section](https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page) and or contribute with concrete pull requests.
