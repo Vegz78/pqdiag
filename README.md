@@ -35,7 +35,7 @@ Additional thanks to:
 - A scheduling service, like _Windows Task Scheduler_ or _cron_ on MacOS and Linux (the scripts can of course also be executed manually on demand)
 
 ## Installation
-1. Clone or download this repo from a release, or just the raw [script file]()https://github.com/Vegz78/pqdiag/blob/main/pqdiag.sh that you need
+1. Clone or download this repo from a release, or just the raw [script file](https://github.com/Vegz78/pqdiag/blob/main/pqdiag.sh) that you need
 2. Take note of the scripts' download location/path or copy it to somewhere accessible in your _PATH_ system environment variables
 3. On MacOS and Linux, make the bash script executable, e.g.: ```sudo chmod 755 ./pqdiag.sh```
 
