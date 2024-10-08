@@ -42,16 +42,16 @@ Additional thanks to:
 ## Usage
 ### MacOS and Linux
 From inside the folder where _pqdiag.sh_ is located, run the script like this:<BR>
-```./pqdiag.sh 192.168.0.10```<BR>, where _192.168.0.1 must be substituted with the actual IP address of your HP printer.
+```./pqdiag.sh 192.168.0.10```<BR>, where _192.168.0.10 must be substituted with the actual IP address of your HP printer.
 ### Windows
 From inside the folder where _pqdiag.bat_ is located, run the script like this:<BR>
-```./pqdiag.bat 192.168.0.10```<BR>, where _192.168.0.1 must be substituted with the actual IP address of your HP printer.
+```pqdiag.bat 192.168.0.10```<BR>, where _192.168.0.10 must be substituted with the actual IP address of your HP printer.
 
 ## Scheduling
 ### MacOS and Linux
 Using _cron_:
 1. ```sudo crontab -e```
-2. Add whichever of these cron entries suits you the best to the and of the file and substitue _/path/to_pqdiag.sh_ with the actual folder location and _192.168.0.1_ with the HP printer's actual IP address:<BR>
+2. Add whichever of these cron entries suits you the best to the and of the file and substitue _/path/to/pqdiag.sh_ with the actual folder location and _192.168.0.10_ with the HP printer's actual IP address:<BR>
    (or exeriment with your own here: https://crontab.guru)
     1. Wednesdays at 07:00 biweekly (odd week numbers as shown in Norwegian calendars):<BR>
        ```0 7 * * Wed expr \( `date +\%s` + 302400 \) / 604800 \% 2 >/dev/null || /path/to/pqdiag.sh 192.168.0.10```
@@ -69,4 +69,4 @@ Since everything works as planned already for me and I have spent some time writ
 
 However, I have some interest in making this a general and available tool for HP printer users with similar needs, so I will visit now and then and maybe fix some errors or help make it work for other printers than the HP OfficeJet Pro 8710 / 8715.
 
-Please post such feedbacks in the [issues section](https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page) and or contribute with concrete pull requests.
+Please post such feedbacks in the [issues section](https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page) and/or contribute with concrete pull requests.
