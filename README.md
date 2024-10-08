@@ -16,4 +16,16 @@ The journey initially led me to _luksfuks'_ [Epson nozzle-check script](https://
 
 Then, I stumbled across Jonathan Yang's [article on Medium about doing just this from an ESP32-DevKit](https://medium.com/@ttrolololll/printer-pulse-check-to-prevent-dry-ink-with-esp32-devkit-338874d21445), which revealed to me the magic XML that needed to be sent to an HP printer to achieve this, and also which probably was possible to replicate in an http POST command with ```curl```, which comes preinstalled on most Windows (starting with W10), MacOS and Linux installations.
 
-Lastly, capturing the https package in question from the HP Utility using Wireshark, comparing the captured package to Yang's above mentioned article and similar XML code in the ```hp-pqdiag``` tool in the GitHub HPLIP (HP Linux Imaging and Printing) repository, studying a bit ```curl``` and ```cron```, relearning somewhat bat and bash scripting and playing a little around, it finally resulted in this repo, which I hope will keep my printer operating smoothly going forward by running the scripts biweekly or weekly, and that I also hope others might benefit from...
+Lastly, capturing the https package in question from the HP Utility using Wireshark, comparing the captured package to Yang's above mentioned article and similar XML code in the ```hp-pqdiag``` tool in the Fossies opensource [HPLIP (HP Linux Imaging and Printing) repository](https://fossies.org/linux/hplip/base/maint.py), studying a bit ```curl``` and ```cron```, relearning somewhat bat and bash scripting and regex, and playing a little around, it finally resulted in this repo, which I hope will keep my printer operating smoothly going forward by running the scripts biweekly or weekly, and that I also hope others might benefit from...
+
+## Prerequisites
+- A device running Windows, MacOS or Linux, preferably always on or able to wake up periodically to run the script
+- _curl_ (comes preinstalled on the above OSes, also on W10 and above)
+- A scheduling service, like _Windows Task Scheduler_ or _cron_ on MacOS and Linux (the scripts can of course also be executed manually on demand)
+
+## Installation
+1. Clone or download this repo from a release, or just the raw [script file]()https://github.com/Vegz78/pqdiag/blob/main/pqdiag.sh that you need
+2. Take note of the scripts' download location/path or copy it to somewhere accessible in your _PATH_ system environment variables
+3. On MacOS and Linux, make the bash script executable, e.g.: ```sudo chmod 755 ./pqdiag.sh```
+
+## Usage
