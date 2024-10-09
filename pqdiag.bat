@@ -30,22 +30,22 @@ rem SOFTWARE.
 SET /A MAX_TIME=5
 SET /A CONNECT_TIMEOUT=5
 
-    setlocal enableextensions enabledelayedexpansion
-    call :validateIP %1 ret
-    if !ret! EQU 0 (
-        echo Sending print quality diagnostics job to HP_printer@%1^^!
-        curl --max-time !MAX_TIME! --connect-timeout !CONNECT_TIMEOUT! -H "User-Agent:" -H "Host: localhost" -H "Accept:" -H "X-HP-AR-INFO: chunk-correct" -H "Content-Type: text/xml" -H "Content-Length: 220" --data-binary "<?xml version=\"1.0\" encoding=\"UTF-8\"?><ipdyn:InternalPrintDyn xmlns:ipdyn=\"http://www.hp.com/schemas/imaging/con/ledm/internalprintdyn/2008/03/21\"><ipdyn:JobType>pqDiagnosticsPage</ipdyn:JobType></ipdyn:InternalPrintDyn>" --http1.1 http://%1%:8080/DevMgmt/InternalPrintDyn.xml >nul 2>&1
+setlocal enableextensions enabledelayedexpansion
+call :validateIP %1 ret
+if !ret! EQU 0 (
+    echo Sending print quality diagnostics job to HP_printer@%1^^!
+    curl --max-time !MAX_TIME! --connect-timeout !CONNECT_TIMEOUT! -H "User-Agent:" -H "Host: localhost" -H "Accept:" -H "X-HP-AR-INFO: chunk-correct" -H "Content-Type: text/xml" -H "Content-Length: 220" --data-binary "<?xml version=\"1.0\" encoding=\"UTF-8\"?><ipdyn:InternalPrintDyn xmlns:ipdyn=\"http://www.hp.com/schemas/imaging/con/ledm/internalprintdyn/2008/03/21\"><ipdyn:JobType>pqDiagnosticsPage</ipdyn:JobType></ipdyn:InternalPrintDyn>" --http1.1 http://%1%:8080/DevMgmt/InternalPrintDyn.xml >nul 2>&1
     if not errorlevel 1 (
         echo PQ diagnostics printed OK^^!
     ) else (
         echo PQ diagnostics did NOT print^^!
     )
-	) else (
-        echo The argument \"%1\" is not a valid IPv4 address or missing...
-	    echo Please try again like this: pqdiag.bat 192.0.0.10
-	    echo (Using your HP printer's IP address^)
-    )
-    exit /b 
+) else (
+    echo The argument "%1" is not a valid IPv4 address or missing...
+    echo Please try again like this: pqdiag.bat 192.0.0.10
+    echo (Using your HP printer's IP address^)
+)
+exit /b 
 
 rem :validateIP below was inspired by MC ND's answer here: https://stackoverflow.com/a/20301111/12802435
 :validateIP ipAddress [returnVariable]
