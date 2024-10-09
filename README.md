@@ -57,7 +57,7 @@ Using _cron_:
        ```0 7 * * Wed expr \( `date +\%s` + 302400 \) / 604800 \% 2 >/dev/null || /path/to/pqdiag.sh 192.168.0.10```
     2. Wednesdays at 07:00 biweekly (even week numbers as shown in Norwegian calendars):<BR>
        ```0 7 * * Wed expr `date +\%s` / 604800 \% 2 >/dev/null || /path/to/pqdiag.sh 192.168.0.10```
-    3. Wdnesdays at 07:00 weekly:<BR>
+    3. Wednesdays at 07:00 weekly:<BR>
        ```0 7 * * Wed /path/to/pqdiag.sh 192.168.0.10```    
 4. Save and close the _crontab_ file
 
