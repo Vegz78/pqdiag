@@ -14,8 +14,8 @@ _The big question is how often the job should run optimally?_ Please share your 
 [Installation](https://github.com/Vegz78/pqdiag#installation)<BR>
 [Usage](https://github.com/Vegz78/pqdiag#usage)<BR>
 [Scheduling](https://github.com/Vegz78/pqdiag#scheduling)<BR>
-[Support (or lack thereof)](https://github.com/Vegz78/pqdiag#support-or-lack-thereof)
-[History and Attributions](https://github.com/Vegz78/pqdiag#history-and-attributions)<BR>
+[Support (or lack thereof)](https://github.com/Vegz78/pqdiag#support-or-lack-thereof)<BR>
+[History and Attributions](https://github.com/Vegz78/pqdiag#history-and-attributions)
 
 ## Prerequisites
 - A device running Windows, MacOS or Linux, preferably always on or able to wake up periodically to run the script
