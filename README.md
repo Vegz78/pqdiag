@@ -15,7 +15,7 @@ _The big question is how often the job should run optimally?_ Please share your 
 [Installation](https://github.com/Vegz78/pqdiag#installation)<BR>
 [Usage](https://github.com/Vegz78/pqdiag#usage)<BR>
 [Scheduling](https://github.com/Vegz78/pqdiag#scheduling)<BR>
-[Putting _pqdiag_ in $PATH](https://github.com/Vegz78/pqdiag#putting-pqdiag-in-path)
+[Putting _pqdiag_ in $PATH](https://github.com/Vegz78/pqdiag#putting-pqdiag-in-path)<BR>
 [Support (or lack thereof)](https://github.com/Vegz78/pqdiag#support-or-lack-thereof)<BR>
 [History and Attributions](https://github.com/Vegz78/pqdiag#history-and-attributions)
 
