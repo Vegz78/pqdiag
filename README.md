@@ -66,15 +66,15 @@ https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-pa
 You could also put the _pqdiag_ scripts inside your $PATH environment variable to run from everywhere:
 
 ### MacOS
-Either move _pqdiag.bat_ to a folder already in your $PATH, or add the folder holding _pqdiag.bat_ to your $PATH like this:
+Either move [_pqdiag.sh_](https://github.com/Vegz78/pqdiag/blob/main/pqdiag.sh) to a folder already in your $PATH, or add the folder holding _pqdiag.bat_ to your $PATH like this:
 https://stackoverflow.com/a/22465399/12802435
 
 ### Linux
-Either move _pqdiag.bat_ to a folder already in your $PATH, or add the folder holding _pqdiag.bat_ to your $PATH like this:
+Either move [_pqdiag.sh_](https://github.com/Vegz78/pqdiag/blob/main/pqdiag.sh) to a folder already in your $PATH, or add the folder holding _pqdiag.bat_ to your $PATH like this:
 https://unix.stackexchange.com/a/3820/479692
 
 ### Windows
-Either move _pqdiag.bat_ to a folder already in your $PATH, or add the folder holding _pqdiag.bat_ to your $PATH like this:
+Either move [_pqdiag.bat_](https://github.com/Vegz78/pqdiag/blob/main/pqdiag.bat) to a folder already in your $PATH, or add the folder holding _pqdiag.bat_ to your $PATH like this:
 https://stackoverflow.com/a/41895179/12802435
 
 
