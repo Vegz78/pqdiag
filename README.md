@@ -1,5 +1,5 @@
 # pqdiag
-Scripts for running and scheduling the embedded print quality diagnostics report printout (PQ Diagnostics) on HP printers, away from the printer and outside of HP's official apps. For Windows, MacOS and Linux.
+Scripts for easily running and scheduling the embedded print quality diagnostics report printout (PQ Diagnostics) on HP printers, away from the printer and outside of HP's official apps. For Windows, MacOS and Linux.
 
 An ink saving alternative to periodically power cycling the printer or running the ink intensive cleaning programs, to prevent the print head nozzles clogging or drying up.
 
