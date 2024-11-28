@@ -9,31 +9,41 @@ _The big question is how often the job should run optimally?_ Please share your 
 
 ![pqdiagnostics](https://github.com/user-attachments/assets/6a3ebff2-4577-4307-806d-72edec964e55)
 
+
 ## Table of Contents:
 [Prerequisites](https://github.com/Vegz78/pqdiag#prerequisites)<BR>
 [Installation](https://github.com/Vegz78/pqdiag#installation)<BR>
 [Usage](https://github.com/Vegz78/pqdiag#usage)<BR>
 [Scheduling](https://github.com/Vegz78/pqdiag#scheduling)<BR>
+[Putting _pqdiag_ in $PATH](https://github.com/Vegz78/pqdiag#putting-pqdiag-in-path)
 [Support (or lack thereof)](https://github.com/Vegz78/pqdiag#support-or-lack-thereof)<BR>
 [History and Attributions](https://github.com/Vegz78/pqdiag#history-and-attributions)
 
+
 ## Prerequisites
-- A device running Windows, MacOS or Linux, preferably always on or able to wake up periodically to run the script
+- A device running Windows, MacOS or Linux
 - _curl_ (comes preinstalled on the above OSes, also on W10 and above)
-- A scheduling service, like _Windows Task Scheduler_ or _cron_ on MacOS and Linux (the scripts can of course also be executed manually on demand)
+- A scheduling service, like _Windows Task Scheduler_ or _cron_ on MacOS and Linux, preferably on a machine that is always on or able to wake up when you want, to run the script periodically<BR>
+(the scripts can of course also be [executed manually whenever you want](https://github.com/Vegz78/pqdiag#usage))
+
 
 ## Installation
-1. Clone or download this repo from a release, or just the raw [script file](https://github.com/Vegz78/pqdiag/blob/main/pqdiag.sh) that you need
-2. Take note of the scripts' download location/path or copy it to somewhere accessible in your _PATH_ system environment variables
+1. Clone this repository or [download it from a release](https://github.com/Vegz78/pqdiag/releases), or just download directly the raw script file that you need for either [MacOS/Linux](https://github.com/Vegz78/pqdiag/blob/main/pqdiag.sh) or [Windows](https://github.com/Vegz78/pqdiag/blob/main/pqdiag.bat)
+2. Take note of the scripts' download location/path or copy it to somewhere accessible in your [_$PATH_ system environment variable](https://github.com/Vegz78/pqdiag#putting-pqdiag-in-path)
 3. On MacOS and Linux, make the bash script executable, e.g.: ```sudo chmod 755 ./pqdiag.sh```
 
+
 ## Usage
+[Put _pqdiag_ in your $PATH environment variable for easy execution from any folder location.](https://github.com/Vegz78/pqdiag#putting-pqdiag-in-path)
 ### MacOS and Linux
-From inside the folder where _pqdiag.sh_ is located, run the script like this:<BR>
-```./pqdiag.sh 192.168.0.10```<BR>, where _192.168.0.10 must be substituted with the actual IP address of your HP printer.
+First, in a terminal and from inside the folder where _pqdiag.sh_ is located, make the bash script executable, e.g.: ```sudo chmod 755 ./pqdiag.sh```
+Then, run the script like this:<BR>
+```./pqdiag.sh 192.168.0.10```<BR>, where _192.168.0.10_ must be substituted with the actual IP address of your HP printer.
+
 ### Windows
-From inside the folder where _pqdiag.bat_ is located, run the script like this:<BR>
-```pqdiag.bat 192.168.0.10```<BR>, where _192.168.0.10 must be substituted with the actual IP address of your HP printer.
+In a command prompt(cmd) From inside the folder where _pqdiag.bat_ is located, just double-click the file or run the script like this:<BR>
+```pqdiag.bat 192.168.0.10```<BR>, where _192.168.0.10_ must be substituted with the actual IP address of your HP printer.
+
 
 ## Scheduling
 ### MacOS and Linux
@@ -52,12 +62,29 @@ Using _cron_:
 ### Windows
 https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page
 
+## Putting _pqdiag_ in $PATH
+You could also put the _pqdiag_ scripts inside your $PATH environment variable to run from everywhere:
+
+### MacOS
+Either move _pqdiag.bat_ to a folder already in your $PATH, or add the folder holding _pqdiag.bat_ to your $PATH like this:
+https://stackoverflow.com/a/22465399/12802435
+
+### Linux
+Either move _pqdiag.bat_ to a folder already in your $PATH, or add the folder holding _pqdiag.bat_ to your $PATH like this:
+https://unix.stackexchange.com/a/3820/479692
+
+### Windows
+Either move _pqdiag.bat_ to a folder already in your $PATH, or add the folder holding _pqdiag.bat_ to your $PATH like this:
+https://stackoverflow.com/a/41895179/12802435
+
+
 ## Support (or lack thereof)
 Since everything works as planned already for me and I have spent some time writing this [_README.md_](https://github.com/Vegz78/pqdiag/blob/main/README.md) with everything there is to know, this repository will not regularly be visited and updated, and it will NOT be user supported.
 
 However, I have some interest in making this a general and available tool for HP printer users with similar needs, so I will visit now and then and maybe fix some errors or help make it work for other printers than the HP OfficeJet Pro 8710 / 8715.
 
 Please post such feedbacks in the [issues section](https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page) and/or contribute with concrete pull requests.
+
 
 ## History and Attributions
 Having grown tired of dried and clogged up printhead nozzles on my HP OfficeJet Pro 8715 printer, and unsatisfied with the tremendous waste of ink from periodically running the printhead cleaning program or scheduling weekly power cycles in the printer's EWS (embedded web server), I set out on a small journey to see if there was some way to schedule the printer's ink-efficient internal print quality diagnostic report to run often enough from my always-on SBC (Rasperry Pi) or NAS servers to prevent clogging through prolonged periods of little printing.
@@ -74,4 +101,3 @@ Additional thanks to:
 - _pilcrow_ for a solution on Stack Overflow for [how to make biweekly cron jobs](https://stackoverflow.com/a/19278657/12802435)!
 - [grontab.guru](https://crontab.guru) for a handy online tool for experimenting with crontab schedules!
 - [regex101.com](https://regex101.com) for a handy online tool for experimenting with regex patterns!
-
