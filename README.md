@@ -3,9 +3,11 @@ Scripts for easily running and scheduling the embedded print quality diagnostics
 
 An ink saving alternative to periodically power cycling the printer or running the ink intensive cleaning programs, to prevent the print head nozzles clogging or drying up.
 
-_The big question is how often the job should run optimally?_ Please share your experiences under the [issues section](https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page).
+_Updates 2026.07.28:<BR>
+-Experience over the last year shows that running the script once a week keeps the nozzles from clogging on my HP OfficeJet Pro 8710 / 8715<BR>
+-Tested successfully today on a HP DeskJet Ink Advantage 5275 printer, which may indicate that this script works on many/most HP ink printers_
 
-(At least these scripts work on my HP OfficeJet Pro 8710 / 8715 series printer from Windows, MacOS and Linux devices. Appreciate feedbacks in the [issues](https://github.com/Vegz78/pqdiag/issues) section on whether the scripts work or not for other HP printers!)
+At least these scripts work on my HP OfficeJet Pro 8710 / 8715 series and the HP DeskJet Ink Advantage 5275 printers from Windows, MacOS and Linux devices. Appreciate feedbacks in the [issues](https://github.com/Vegz78/pqdiag/issues) section on whether the scripts work or not for other HP printers and other relevant usage experiences!)
 
 ![pqdiagnostics](https://github.com/user-attachments/assets/6a3ebff2-4577-4307-806d-72edec964e55)
 
