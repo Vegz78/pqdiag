@@ -85,7 +85,7 @@ Since everything works as planned already for me and I have spent some time writ
 
 However, I have some interest in making this a general and available tool for HP printer users with similar needs, so I will visit now and then and maybe fix some errors or help make it work for other printers than the HP OfficeJet Pro 8710 / 8715.
 
-Please post such feedbacks in the [issues section](https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-page) and/or contribute with concrete pull requests.
+Please post such feedbacks in the [issues section](https://github.com/Vegz78/pqdiag/issues) and/or contribute with concrete pull requests.
 
 
 ## History and Attributions
