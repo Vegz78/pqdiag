@@ -8,9 +8,9 @@ _Updates 2026.07.28:<BR>
 -Tested successfully today on a HP DeskJet Ink Advantage 5275 printer, which may indicate that this script works on many/most HP ink printers_
 
 _Updates 2026.11.25:<BR>
--Updated regex patterns to accept hostnames in addition to IP-addresses
--Extended error checks to try to confirm if printer received diagnostics job or not, with improved messages for invalid arguments and communication failures.
--Added error codes and std.err routing to be better callable from other scripts_
+-Updated regex patterns to accept hostnames in addition to IP-addresses<BR>
+-Extended error checks to try to confirm if printer received diagnostics job or not, with improved messages for invalid arguments and communication failures<BR>
+-Added error codes and std.err routing to be better callable from other scripts<BR>_
 
 At least these scripts work on my HP OfficeJet Pro 8710 / 8715 series and the HP DeskJet Ink Advantage 5275 printers from Windows, MacOS and Linux devices. Appreciate feedbacks in the [issues](https://github.com/Vegz78/pqdiag/issues) section on whether the scripts work or not for other HP printers and other relevant usage experiences!)
 
