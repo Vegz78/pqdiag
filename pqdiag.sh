@@ -39,7 +39,7 @@ HOST_REGEX='^([a-zA-Z0-9-]+\.)*[a-zA-Z][a-zA-Z0-9-]*$'
 
 if [[ "$1" =~ $IP_REGEX || "$1" =~ $HOST_REGEX ]]; then
         echo "Sending print quality diagnostics job to HP_printer@$1!"
-        curl -f --max-time $MAX_TIME --connect-timeout $CONNECT_TIMEOUT -H "User-Agent:" -H "Host: localhost" -H "Accept:" -H "X-HP-AR-INFO: chunk-correct" -H "Content-Type: text/xml" -H "Content-Length: 220" --data-binary "<?xml versio$
+        curl -f --max-time $MAX_TIME --connect-timeout $CONNECT_TIMEOUT -H "User-Agent:" -H "Host: localhost" -H "Accept:" -H "X-HP-AR-INFO: chunk-correct" -H "Content-Type: text/xml" -H "Content-Length: 220" --data-binary "<?xml version=\"1.0\" encoding=\"UTF-8\"?><ipdyn:InternalPrintDyn xmlns:ipdyn=\"http://hp.com\"><ipdyn:JobType>pqDiagnosticsPage</ipdyn:JobType></ipdyn:InternalPrintDyn>" --http1.1 http://$1:8080/DevMgmt/InternalPrintDyn.xml 2> /dev/null
         CURL_EXIT=$?
         if [[ $CURL_EXIT == 0 ]]; then
                 echo "PQ diagnostics printed OK!"
