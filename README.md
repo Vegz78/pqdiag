@@ -7,6 +7,11 @@ _Updates 2026.07.28:<BR>
 -Experience over the last year shows that running the script once a week keeps the nozzles from clogging on my HP OfficeJet Pro 8710 / 8715<BR>
 -Tested successfully today on a HP DeskJet Ink Advantage 5275 printer, which may indicate that this script works on many/most HP ink printers_
 
+_Updates 2026.11.25:<BR>
+-Updated regex patterns to accept hostnames in addition to IP-addresses
+-Extended error checks to try to confirm if printer received diagnostics job or not, with improved messages for invalid arguments and communication failures.
+-Added error codes and std.err routing to be better callable from other scripts
+
 At least these scripts work on my HP OfficeJet Pro 8710 / 8715 series and the HP DeskJet Ink Advantage 5275 printers from Windows, MacOS and Linux devices. Appreciate feedbacks in the [issues](https://github.com/Vegz78/pqdiag/issues) section on whether the scripts work or not for other HP printers and other relevant usage experiences!)
 
 ![pqdiagnostics](https://github.com/user-attachments/assets/6a3ebff2-4577-4307-806d-72edec964e55)
@@ -40,11 +45,11 @@ At least these scripts work on my HP OfficeJet Pro 8710 / 8715 series and the HP
 ### MacOS and Linux
 First, in a terminal and from inside the folder where _pqdiag.sh_ is located, make the bash script executable, e.g.: ```sudo chmod 755 ./pqdiag.sh```
 Then, run the script like this:<BR>
-```./pqdiag.sh 192.168.0.10```<BR>, where _192.168.0.10_ must be substituted with the actual IP address of your HP printer.
+```./pqdiag.sh 192.168.0.10``` (IP address or hostname)<BR>, where _192.168.0.10_ must be substituted with the actual IP address or hostname of your HP printer.
 
 ### Windows
 In a command prompt(cmd) From inside the folder where _pqdiag.bat_ is located, just double-click the file or run the script like this:<BR>
-```pqdiag.bat 192.168.0.10```<BR>, where _192.168.0.10_ must be substituted with the actual IP address of your HP printer.
+```pqdiag.bat 192.168.0.10``` (IP address or hostname)<BR>, where _192.168.0.10_ must be substituted with the actual IP address or hostname of your HP printer.
 
 
 ## Scheduling
