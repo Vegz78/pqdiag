@@ -1,5 +1,5 @@
 # pqdiag
-Scripts for easily running and scheduling the embedded print quality diagnostics report printout (PQ Diagnostics) on HP printers, away from the printer and outside of HP's official apps. For Windows, MacOS and Linux.
+Command-line nozzle check and printhead maintenance scripts (pqdiag.sh / pqdiag.bat) for triggering the embedded Print Quality Diagnostics Report (PQ Diagnostics) on HP ink printers over the network (IPv4/hostname) or direct USB, without HP Smart, HPLIP, or extra drivers. Ideal for scheduled cron / Task Scheduler maintenance on Windows, macOS, Linux, Raspberry Pi, or Home Assistant.
 
 An ink saving alternative to periodically power cycling the printer or running the ink intensive cleaning programs, to prevent the print head nozzles clogging or drying up.
 
@@ -12,7 +12,8 @@ _Updates 2026.07.28:<BR>
 _Updates 2026.11.25:<BR>
 -Updated regex patterns to accept hostnames in addition to IP-addresses<BR>
 -Extended error checks to try to confirm if printer received diagnostics job or not, with improved messages for invalid arguments and communication failures<BR>
--Added error codes and std.err routing to be better callable from other scripts<BR>_
+-Added error codes and std.err routing to be better callable from other scripts<BR>
+-Added direct USB support (`usb`, `usb:1`, `usb:2`, ...) across Windows (native WinUSB/USBPRINT), macOS (built-in `ippusbd`), and Linux (`ipp-usb`), including wake-from-sleep handling_<BR>
 
 At least these scripts work on my HP OfficeJet Pro 8710 / 8715 series and the HP DeskJet Ink Advantage 5275 printers from Windows, MacOS and Linux devices. Appreciate feedbacks in the [issues](https://github.com/Vegz78/pqdiag/issues) section on whether the scripts work or not for other HP printers and other relevant usage experiences!)
 
@@ -25,15 +26,18 @@ At least these scripts work on my HP OfficeJet Pro 8710 / 8715 series and the HP
 [Usage](https://github.com/Vegz78/pqdiag#usage)<BR>
 [Scheduling](https://github.com/Vegz78/pqdiag#scheduling)<BR>
 [Putting _pqdiag_ in $PATH](https://github.com/Vegz78/pqdiag#putting-pqdiag-in-path)<BR>
+[Exit Codes](https://github.com/Vegz78/pqdiag#exit-codes)<BR>
 [Support (or lack thereof)](https://github.com/Vegz78/pqdiag#support-or-lack-thereof)<BR>
 [History and Attributions](https://github.com/Vegz78/pqdiag#history-and-attributions)
 
 
 ## Prerequisites
 - A device running Windows, MacOS or Linux
-- _curl_ (comes preinstalled on the above OSes, also on W10 and above)
+- _curl_ (comes preinstalled on all the above OSes, also on W10 and above)
 - A scheduling service, like _Windows Task Scheduler_ or _cron_ on MacOS and Linux, preferably on a machine that is always on or able to wake up when you want, to run the script periodically<BR>
 (the scripts can of course also be [executed manually whenever you want](https://github.com/Vegz78/pqdiag#usage))
+- For local USB connections: no extra software needed on Windows (Win10+) or macOS (uses built-in `ippusbd`),<BR>
+on Linux, requires `ipp-usb` (preinstalled on most desktop distros, or install via e.g. `sudo apt install ipp-usb`)
 
 
 ## Installation
@@ -65,8 +69,8 @@ Or, like this if printer is connected directly to the machine via USB:<BR>
 ### MacOS and Linux
 Using _cron_:
 1. ```sudo crontab -e```
-2. Add whichever of these cron entries suits you the best to the and of the file and substitute _/path/to/pqdiag.sh_ with the actual folder location and _192.168.0.10_ with the HP printer's actual IP address, hostname or _usb_ if connected locally by USB:<BR>
-   (or exeriment with your own here: https://crontab.guru)
+2. Add whichever of these cron entries suits you the best to the end of the file and substitute _/path/to/pqdiag.sh_ with the actual folder location and _192.168.0.10_ with the HP printer's actual IP address, hostname or _usb_ if connected locally by USB:<BR>
+   (or experiment with your own here: https://crontab.guru)
     1. Wednesdays at 07:00 biweekly (odd week numbers as shown in Norwegian calendars):<BR>
        ```0 7 * * Wed expr \( `date +\%s` + 302400 \) / 604800 \% 2 >/dev/null || /path/to/pqdiag.sh 192.168.0.10```
     2. Wednesdays at 07:00 biweekly (even week numbers as shown in Norwegian calendars):<BR>
@@ -82,16 +86,23 @@ https://learn.microsoft.com/en-us/windows/win32/taskschd/task-scheduler-start-pa
 You could also put the _pqdiag_ scripts inside your $PATH environment variable to run from everywhere:
 
 ### MacOS
-Either move [_pqdiag.sh_](https://github.com/Vegz78/pqdiag/blob/main/pqdiag.sh) to a folder already in your $PATH, or add the folder holding _pqdiag.bat_ to your $PATH like this:
+Either move [_pqdiag.sh_](https://github.com/Vegz78/pqdiag/blob/main/pqdiag.sh) to a folder already in your $PATH, or add the folder holding _pqdiag.sh_ to your $PATH like this:
 https://stackoverflow.com/a/22465399/12802435
 
 ### Linux
-Either move [_pqdiag.sh_](https://github.com/Vegz78/pqdiag/blob/main/pqdiag.sh) to a folder already in your $PATH, or add the folder holding _pqdiag.bat_ to your $PATH like this:
+Either move [_pqdiag.sh_](https://github.com/Vegz78/pqdiag/blob/main/pqdiag.sh) to a folder already in your $PATH, or add the folder holding _pqdiag.sh_ to your $PATH like this:
 https://unix.stackexchange.com/a/3820/479692
 
 ### Windows
 Either move [_pqdiag.bat_](https://github.com/Vegz78/pqdiag/blob/main/pqdiag.bat) to a folder already in your $PATH, or add the folder holding _pqdiag.bat_ to your $PATH like this:
 https://stackoverflow.com/a/41895179/12802435
+
+
+## Exit Codes
+- `0` — OK (print job sent and acknowledged)
+- `1` — Failed (printer unreachable, busy, or rejected request — safe to retry)
+- `2` — Invalid argument (bad IPv4 address, hostname, or USB index)
+- `3` — Ambiguous (job sent, but acknowledgment timed out — do not auto-retry)
 
 
 ## Support (or lack thereof)
@@ -112,9 +123,9 @@ Then, I stumbled across Jonathan Yang's [article on Medium about doing just this
 Lastly, capturing the http package in question from the HP Utility using Wireshark, comparing the captured package to Yang's above mentioned article and similar XML code in the ```hp-pqdiag``` tool in the Fossies opensource [HPLIP (HP Linux Imaging and Printing) repository](https://fossies.org/linux/hplip/base/maint.py), studying a bit ```curl``` and ```cron```, relearning somewhat bat and bash scripting and regex, and playing a little around, it finally resulted in this repo, which I hope will keep my printer operating smoothly going forward by running the scripts biweekly or weekly, and that I also hope others might benefit from...
 
 Additional thanks to:
-- _MC ND_ on Stack Overflow for showing the way [how to check an argument containing an IP address using regex with ```findstr``` in at bat script](https://stackoverflow.com/a/20301111/12802435)!
+- _MC ND_ on Stack Overflow for showing the way [how to check an argument containing an IP address using regex with ```findstr``` in a bat script](https://stackoverflow.com/a/20301111/12802435)!
 - _Danail Gabensky_ for the superb answer on Stack Overflow on [how to most efficiently check an argument containing an IP address using regex in a bash script](https://stackoverflow.com/a/36760050/12802435)!
 - _pilcrow_ for a solution on Stack Overflow for [how to make biweekly cron jobs](https://stackoverflow.com/a/19278657/12802435)!
-- [grontab.guru](https://crontab.guru) for a handy online tool for experimenting with crontab schedules!
+- [crontab.guru](https://crontab.guru) for a handy online tool for experimenting with crontab schedules!
 - [regex101.com](https://regex101.com) for a handy online tool for experimenting with regex patterns!
 - Google Gemini AI for helping me with the USB parts and cleaning up code logic!
