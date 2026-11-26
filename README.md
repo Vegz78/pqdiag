@@ -3,7 +3,7 @@ Command-line nozzle check and printhead maintenance scripts (pqdiag.sh / pqdiag.
 
 An ink saving alternative to periodically power cycling the printer or running the ink intensive cleaning programs, to prevent the print head nozzles clogging or drying up.
 
-The printer internal quality diagnostics report also ensures that every nozzle in the ink printer is used for every printout, with the added benefit of seeing whether the printer is still calibrated, ink levels etc.
+The printer internal quality diagnostics report also ensures that every nozzle in the ink printer is used for every printout, with the added benefit of seeing whether the printer is still calibrated, ink levels etc.<BR><BR>
 
 _Updates 2026.07.28:<BR>
 -Experience over the last year shows that running the script once a week keeps the nozzles from clogging on my HP OfficeJet Pro 8710 / 8715<BR>
@@ -13,7 +13,7 @@ _Updates 2026.11.25:<BR>
 -Updated regex patterns to accept hostnames in addition to IP-addresses<BR>
 -Extended error checks to try to confirm if printer received diagnostics job or not, with improved messages for invalid arguments and communication failures<BR>
 -Added error codes and std.err routing to be better callable from other scripts<BR>
--Added direct USB support (`usb`, `usb:1`, `usb:2`, ...) across Windows (native WinUSB/USBPRINT), macOS (built-in `ippusbd`), and Linux (`ipp-usb`), including wake-from-sleep handling_<BR>
+-Added direct USB support (`usb`, `usb:1`, `usb:2`, ...) across Windows (native WinUSB/USBPRINT), macOS (built-in `ippusbd`), and Linux (`ipp-usb`), including wake-from-sleep handling_<BR><BR>
 
 At least these scripts work on my HP OfficeJet Pro 8710 / 8715 series and the HP DeskJet Ink Advantage 5275 printers from Windows, MacOS and Linux devices. Appreciate feedbacks in the [issues](https://github.com/Vegz78/pqdiag/issues) section on whether the scripts work or not for other HP printers and other relevant usage experiences!)
 
