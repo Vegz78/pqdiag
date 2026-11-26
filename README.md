@@ -3,6 +3,8 @@ Scripts for easily running and scheduling the embedded print quality diagnostics
 
 An ink saving alternative to periodically power cycling the printer or running the ink intensive cleaning programs, to prevent the print head nozzles clogging or drying up.
 
+The printer internal quality diagnostics report also ensures that every nozzle in the ink printer is used for every printout, with the added benefit of seeing whether the printer is still calibrated, ink levels etc.
+
 _Updates 2026.07.28:<BR>
 -Experience over the last year shows that running the script once a week keeps the nozzles from clogging on my HP OfficeJet Pro 8710 / 8715<BR>
 -Tested successfully today on a HP DeskJet Ink Advantage 5275 printer, which may indicate that this script works on many/most HP ink printers_
@@ -43,20 +45,27 @@ At least these scripts work on my HP OfficeJet Pro 8710 / 8715 series and the HP
 ## Usage
 [Put _pqdiag_ in your $PATH environment variable for easy execution from any folder location.](https://github.com/Vegz78/pqdiag#putting-pqdiag-in-path)
 ### MacOS and Linux
-First, in a terminal and from inside the folder where _pqdiag.sh_ is located, make the bash script executable, e.g.: ```sudo chmod 755 ./pqdiag.sh```
-Then, run the script like this:<BR>
-```./pqdiag.sh 192.168.0.10``` (IP address or hostname)<BR>, where _192.168.0.10_ must be substituted with the actual IP address or hostname of your HP printer.
+First, in a terminal and from inside the folder where _pqdiag.sh_ is located, ensure the bash script executable, e.g.:<BR>```sudo chmod 755 ./pqdiag.sh```<BR>
+
+Then, run the script like this if printer is connected on the local network:<BR>
+```./pqdiag.sh 192.168.0.10``` (IP address or hostname),<BR>where _192.168.0.10_ must be substituted with the actual IP address or hostname of your HP printer.<BR>
+
+Or, like this if printer is connected directly to the machine via USB:<BR>
+```./pqdiag.sh usb```,<BR>where _usb_ or _usb:1_ is the first USB-connected printer, _usb:2_ the second etc.<BR>
 
 ### Windows
-In a command prompt(cmd) From inside the folder where _pqdiag.bat_ is located, just double-click the file or run the script like this:<BR>
-```pqdiag.bat 192.168.0.10``` (IP address or hostname)<BR>, where _192.168.0.10_ must be substituted with the actual IP address or hostname of your HP printer.
+In a command prompt(cmd) From inside the folder where _pqdiag.bat_ is located, run the script like this:<BR>
+```pqdiag.bat 192.168.0.10``` (IP address or hostname),<BR>where _192.168.0.10_ must be substituted with the actual IP address or hostname of your HP printer.<BR>
+
+Or, like this if printer is connected directly to the machine via USB:<BR>
+```pqdiag.bat usb```,<BR>where _usb_ or _usb:1_ is the first USB-connected printer, _usb:2_ the second etc.<BR>
 
 
 ## Scheduling
 ### MacOS and Linux
 Using _cron_:
 1. ```sudo crontab -e```
-2. Add whichever of these cron entries suits you the best to the and of the file and substitue _/path/to/pqdiag.sh_ with the actual folder location and _192.168.0.10_ with the HP printer's actual IP address:<BR>
+2. Add whichever of these cron entries suits you the best to the and of the file and substitute _/path/to/pqdiag.sh_ with the actual folder location and _192.168.0.10_ with the HP printer's actual IP address, hostname or _usb_ if connected locally by USB:<BR>
    (or exeriment with your own here: https://crontab.guru)
     1. Wednesdays at 07:00 biweekly (odd week numbers as shown in Norwegian calendars):<BR>
        ```0 7 * * Wed expr \( `date +\%s` + 302400 \) / 604800 \% 2 >/dev/null || /path/to/pqdiag.sh 192.168.0.10```
@@ -108,3 +117,4 @@ Additional thanks to:
 - _pilcrow_ for a solution on Stack Overflow for [how to make biweekly cron jobs](https://stackoverflow.com/a/19278657/12802435)!
 - [grontab.guru](https://crontab.guru) for a handy online tool for experimenting with crontab schedules!
 - [regex101.com](https://regex101.com) for a handy online tool for experimenting with regex patterns!
+- Google Gemini AI for helping me with the USB parts and cleaning up code logic!
